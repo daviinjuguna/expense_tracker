@@ -1,0 +1,74 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "systemOption": "System",
+    "@systemOption": {
+      "description": "The option to use system-wide theme in the theme selector menu",
+      "type": "text",
+      "placeholders": {}
+    },
+    "lightModeOption": "Light",
+    "@lightModeOption": {
+      "description": "The option for light mode in the theme selector menu",
+      "type": "text",
+      "placeholders": {}
+    },
+    "darkModeOption": "Dark",
+    "@darkModeOption": {
+      "description": "The option for dark mode in the theme selector menu",
+      "type": "text",
+      "placeholders": {}
+    },
+
+    "invalidCredentials": "Invalid credentials",
+    "@invalidCredentials": {
+      "description": "Error message shown when the user enters invalid credentials",
+      "type": "text",
+      "placeholders": {}
+    },
+    "invalidEmail": "Invalid email",
+    "@invalidEmail": {
+      "description": "Error message shown when the user enters an invalid email",
+      "type": "text",
+      "placeholders": {}
+    },
+    "userDisabled": "User is disabled",
+    "@userDisabled": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    },
+    "signInError": "Sign in error",
+    "@signInError": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    },
+    "emailAlreadyInUse": "Email already in use",
+    "@emailAlreadyInUse": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    },
+    "weakPassword": "Weak password",
+    "@weakPassword": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    },
+    "accountExistsWithDifferentCredential": "Account exists with different credential",
+    "@accountExistsWithDifferentCredential": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    },
+    "signOutError": "Sign out error",
+    "@signOutError": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    }
+}
