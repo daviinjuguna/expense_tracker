@@ -56,7 +56,6 @@ flutter:
   generate: true
   assets:
     - assets/
-    - assets/.env
 
 flutter_gen:
   output: lib/gen/

@@ -12,12 +12,11 @@ import 'package:flutter/widgets.dart';
 class Assets {
   Assets._();
 
-  static const String env = 'assets/.env';
   static const String google = 'assets/google.svg';
   static const String saco = 'assets/saco.svg';
 
   /// List of all assets
-  List<String> get values => [env, google, saco];
+  List<String> get values => [google, saco];
 }
 
 class AssetGenImage {
