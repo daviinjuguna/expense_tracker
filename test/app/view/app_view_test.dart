@@ -44,6 +44,4 @@ void main() {
       expect(MediaQuery.of(context).platformBrightness, Brightness.light);
     });
   });
-
-
 }
