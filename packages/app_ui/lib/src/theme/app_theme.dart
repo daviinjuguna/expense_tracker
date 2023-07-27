@@ -16,6 +16,7 @@ class AppTheme {
         textTheme: uiTextTheme,
         primaryColor: _colorScheme.primary,
         brightness: _colorScheme.brightness,
+        inputDecorationTheme: _inputTheme,
       );
 
   /// The UI text theme based on [UITextStyle].
@@ -67,6 +68,14 @@ class AppTheme {
         onInverseSurface: Color(0xfff5f5f5),
         inversePrimary: Color(0xff9ea2a6),
         surfaceTint: Color(0xff1d2228),
+      );
+
+  /// Input decoration theme for App UI.
+  InputDecorationTheme get _inputTheme => InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        contentPadding: const EdgeInsets.all(10),
       );
 }
 

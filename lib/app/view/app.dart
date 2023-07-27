@@ -22,8 +22,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeModeBloc>(create: (_) => themeModeBloc ?? getIt()),
-        BlocProvider<SplashBloc>(
-            create: (_) => (splashBloc ?? getIt())..add(StartSplashEvent())),
+        BlocProvider<SplashBloc>(create: (_) => splashBloc ?? getIt()),
       ],
       child: const AppView(),
     );

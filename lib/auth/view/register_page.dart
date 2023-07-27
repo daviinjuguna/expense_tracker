@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:expense_tracker/auth/auth.dart';
+import 'package:expense_tracker/auth/bloc/auth/auth_cubit.dart';
 import 'package:expense_tracker/di/di.dart';
 import 'package:expense_tracker/gen/gen.dart';
 import 'package:expense_tracker/l10n/l10n.dart';
-import 'package:expense_tracker/router/router.dart';
+import 'package:expense_tracker/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key, this.authCubit});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key, this.authCubit});
 
   @visibleForTesting
   final AuthCubit? authCubit;
@@ -20,38 +20,35 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => authCubit ?? getIt<AuthCubit>(),
-      child: LoginView(
+      child: RegisterView(
         authCubitTest: authCubit,
       ),
     );
   }
 }
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key, this.authCubitTest});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key, this.authCubitTest});
   @visibleForTesting
   final AuthCubit? authCubitTest;
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   AppLocalizations get l10n => AppLocalizations.of(context);
   TextTheme get textTheme => Theme.of(context).textTheme;
-  // AuthCubit get authCubit => ;
 
   @override
   Widget build(BuildContext context) {
     final state = context.watch<AuthCubit>().state;
-
     return Scaffold(
       body: Center(
         child: ListView(
           padding: EdgeInsets.all(10),
           shrinkWrap: true,
           children: [
-            //header
             Hero(
               tag: 'logo',
               child: Column(
@@ -69,64 +66,79 @@ class _LoginViewState extends State<LoginView> {
               ),
             ),
             SizedBox(height: 10),
-            //form field
             TextFormField(
-              key: const Key('loginForm_emailInput_textField'),
+              key: const Key('email_input'),
+              keyboardType: TextInputType.emailAddress,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (value) =>
                   state.email.isNotValid ? l10n.invalidEmail : null,
               readOnly: state.status.isInProgress,
-              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: l10n.email,
                 hintText: l10n.emailHint,
+                prefixIcon: Icon(Icons.email),
               ),
               onChanged: context.read<AuthCubit>().emailChanged,
             ),
             SizedBox(height: 10),
             TextFormField(
-              key: const Key('loginForm_passwordInput_textField'),
+              key: const Key('password_input'),
               obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (value) =>
                   state.password.isNotValid ? l10n.weakPassword : null,
               readOnly: state.status.isInProgress,
-              keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
                 labelText: l10n.password,
                 hintText: l10n.passwordHint,
+                prefixIcon: Icon(Icons.lock),
               ),
               onChanged: context.read<AuthCubit>().passwordChanged,
             ),
+            SizedBox(height: 10),
+            TextFormField(
+              key: const Key('confirm_password_input'),
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) => state.confirmPassword.isNotValid
+                  ? l10n.passwordsDontMatch
+                  : null,
+              readOnly: state.status.isInProgress,
+              decoration: InputDecoration(
+                labelText: l10n.confirmPassword,
+                hintText: l10n.confirmPasswordHint,
+                prefixIcon: Icon(Icons.lock),
+              ),
+              onChanged: context.read<AuthCubit>().confirmPasswordChanged,
+            ),
             SizedBox(height: 20),
             ElevatedButton(
-              key: const Key('sign_in_btn'),
-              onPressed: state.status.isInProgress || !state.loginValid
+              key: const Key('sign_up_btn'),
+              onPressed: state.status.isInProgress || !state.isValid
                   ? null
-                  : context.read<AuthCubit>().signIn,
-              child: Text(l10n.signIn),
+                  : context.read<AuthCubit>().signUp,
+              child: Text(l10n.signUp),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
               ),
             ),
-            //already did this
             Row(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(l10n.dontHaveAccount),
+                Text(l10n.haveAccount),
                 TextButton(
-                  key: const Key('sign_up_btn'),
-                  onPressed: state.status.isInProgress
-                      ? null
-                      : () {
-                          context.navigateTo(
-                            RegisterRoute(authCubit: widget.authCubitTest),
-                          );
-                        },
-                  child: Text(l10n.signUp),
+                  key: const Key('sign_in_btn'),
+                  onPressed: () {
+                    context.navigateTo(
+                      LoginRoute(authCubit: widget.authCubitTest),
+                    );
+                  },
+                  child: Text(l10n.signIn),
                   style: TextButton.styleFrom(
                     backgroundColor: Theme.of(context).colorScheme.background,
                     foregroundColor: Theme.of(context).colorScheme.secondary,
@@ -135,21 +147,21 @@ class _LoginViewState extends State<LoginView> {
               ],
             ),
             //google sign in
-            ElevatedButton.icon(
-              key: const Key('google_btn'),
-              onPressed: state.status.isInProgress
-                  ? null
-                  : context.read<AuthCubit>().signInWithGoogle,
-              icon: SvgPicture.asset(
-                Assets.google,
-                height: 24,
-              ),
-              label: Text(l10n.signInWith('Google')),
-              style: FilledButton.styleFrom(
-                backgroundColor: Color(0xff0057e7),
-                foregroundColor: Colors.white,
-              ),
-            )
+            // ElevatedButton.icon(
+            //   key: const Key('google_btn_register'),
+            //   onPressed: state.status.isInProgress
+            //       ? null
+            //       : context.read<AuthCubit>().signInWithGoogle,
+            //   icon: SvgPicture.asset(
+            //     Assets.google,
+            //     height: 24,
+            //   ),
+            //   label: Text(l10n.signInWith('Google')),
+            //   style: FilledButton.styleFrom(
+            //     backgroundColor: Color(0xff0057e7),
+            //     foregroundColor: Colors.white,
+            //   ),
+            // )
           ],
         ),
       ),

@@ -15,15 +15,14 @@ class MockSplashBloc extends MockBloc<SplashEvent, SplashState>
     implements SplashBloc {}
 
 void main() {
-  // initMockHydratedStorage();
   late ThemeModeBloc themeModeBloc;
   late SplashBloc splashBloc;
-  // setUp();
+  // late AppRouter router;
 
   setUp(() {
-    // configureTestInjection();
     themeModeBloc = MockThemeModeBloc();
     splashBloc = MockSplashBloc();
+    // router = AppRouter();
   });
 
   group('AppTheme', () {
@@ -46,20 +45,5 @@ void main() {
     });
   });
 
-  // group('SplashBloc', () {
-  //   testWidgets(
-  //     "Unauthenticated state should navigate to Login Page",
-  //     (WidgetTester tester) async {
-  //       when(() => splashBloc.state)
-  //           .thenAnswer((_) => SplashState.authenticated);
-  //       when(() => themeModeBloc.state).thenAnswer((_) => ThemeMode.light);
-  //       await tester.pumpWidget(App(
-  //         themeModeBloc: themeModeBloc,
-  //         splashBloc: splashBloc,
-  //       ));
-  //       await tester.pump(Duration(seconds: 5));
-  //       expect(find.byType(LoginPage), findsOneWidget);
-  //     },
-  //   );
-  // });
+
 }

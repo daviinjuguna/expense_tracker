@@ -9,7 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppView extends StatefulWidget {
-  const AppView({super.key});
+  const AppView({super.key, this.appRouter});
+
+  @visibleForTesting
+  final AppRouter? appRouter;
 
   @override
   State<AppView> createState() => _AppViewState();
@@ -24,8 +27,8 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    _appRouter = AppRouter(navigatorKey: _navigatorKey);
-    // context.read<SplashBloc>().;
+    _appRouter = widget.appRouter ?? AppRouter(navigatorKey: _navigatorKey);
+    context.read<SplashBloc>().add(StartSplashEvent());
   }
 
   @override
@@ -65,6 +68,7 @@ class _AppViewState extends State<AppView> {
             supportedLocales: AppLocalizations.supportedLocales,
             routeInformationParser: _appRouter.defaultRouteParser(),
             routerDelegate: _appRouter.delegate(),
+            // routerConfig: _appRouter.config(),
           );
         },
       ),

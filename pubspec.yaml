@@ -12,6 +12,7 @@ dependencies:
   auto_route: ^7.7.1
   bloc: ^8.1.2
   cloud_firestore: ^4.8.4
+  collection: ^1.17.1
   dartz: ^0.10.1
   firebase_auth: ^4.7.2
   firebase_core: ^2.15.0
@@ -21,8 +22,10 @@ dependencies:
   flutter_dotenv: ^5.1.0
   flutter_localizations:
     sdk: flutter
+  flutter_svg: ^2.0.7
   form_inputs:
     path: packages/form_inputs
+  formz: ^0.6.0
   get_it: ^7.6.0
   google_sign_in: ^6.1.4
   hydrated_bloc: ^9.1.2
@@ -43,7 +46,6 @@ dev_dependencies:
     sdk: flutter
   google_sign_in_mocks: ^0.3.0
   mockingjay: ^0.3.0
-  mocktail: ^0.3.0
   very_good_analysis: ^5.0.0+1
 
 dependency_overrides:

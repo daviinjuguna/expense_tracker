@@ -4,6 +4,11 @@
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
     },
+    "appTitle": "Expense Tracker",
+    "@appTitle": {
+        "description": "Text shown in the AppBar of the Home Page"
+    },
+
     "systemOption": "System",
     "@systemOption": {
       "description": "The option to use system-wide theme in the theme selector menu",
@@ -59,6 +64,12 @@
       "type": "text",
       "placeholders": {}
     },
+    "passwordsDontMatch": "Passwords don't match",
+    "@passwordsDontMatch": {
+      "description": "Error message shown when the user is disabled",
+      "type": "text",
+      "placeholders": {}
+    },
     "accountExistsWithDifferentCredential": "Account exists with different credential",
     "@accountExistsWithDifferentCredential": {
       "description": "Error message shown when the user is disabled",
@@ -70,5 +81,91 @@
       "description": "Error message shown when the user is disabled",
       "type": "text",
       "placeholders": {}
+    },
+
+    "signIn": "Sign in",
+    "@signIn": {
+      "description": "Text shown in the sign in button",
+      "type": "text",
+      "placeholders": {}
+    },
+    "signUp": "Sign up",
+    "@signUp": {
+      "description": "Text shown in the sign up button",
+      "type": "text",
+      "placeholders": {}
+    },
+
+    "email": "Email",
+    "@email": {
+      "description": "Text shown in the email field",
+      "type": "text",
+      "placeholders": {}
+    },
+    "password": "Password",
+    "@password": {
+      "description": "Text shown in the password field",
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmPassword": "Confirm password",
+    "@confirmPassword": {
+      "description": "Text shown in the confirm password field",
+      "type": "text",
+      "placeholders": {}
+    },
+    "forgotPassword": "Forgot password?",
+    "@forgotPassword": {
+      "description": "Text shown in the forgot password button",
+      "type": "text",
+      "placeholders": {}
+    },
+
+    "emailHint": "Enter your email",
+    "@emailHint": {
+      "description": "Text shown in the email field hint",
+      "type": "text",
+      "placeholders": {}
+    },
+    "passwordHint": "Enter your password",
+    "@passwordHint": {
+      "description": "Text shown in the password field hint",
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmPasswordHint": "Confirm your password",
+    "@confirmPasswordHint": {
+      "description": "Text shown in the confirm password field hint",
+      "type": "text",
+      "placeholders": {}
+    },
+
+    "haveAccount": "Already did this?",
+    "@haveAccount": {
+      "description": "have an account hint",
+      "type": "text",
+      "placeholders": {}
+    },
+    "dontHaveAccount": "New to this Experience?",
+    "@dontHaveAccount": {
+      "description": "don't have an account hint",
+      "type": "text",
+      "placeholders": {}
+    },
+
+    "signInWith": "Sign in with {provider}",
+    "@signInWith": {
+      "description": "Text shown in the sign in with button",
+      "type": "text",
+      "placeholders": {
+        "provider": {
+          "type": "String",
+          "examples": [
+            "Google",
+            "Facebook",
+            "Apple"
+          ]
+        }
+      }
     }
 }
