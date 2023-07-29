@@ -12,3 +12,7 @@ abstract class AppException implements Exception {
 class AuthException extends AppException {
   const AuthException(super.error);
 }
+
+class GoogleSignInCancelledException extends AuthException {
+  const GoogleSignInCancelledException() : super('googleSignInCancelled');
+}

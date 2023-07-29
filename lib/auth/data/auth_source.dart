@@ -60,7 +60,7 @@ class AuthSourceImpl implements AuthSource {
       final googleUser = await googleSignIn.signIn();
       if (googleUser == null) {
         Error.throwWithStackTrace(
-          AuthException("google-sign-in-cancelled"),
+          GoogleSignInCancelledException(),
           StackTrace.current,
         );
       }

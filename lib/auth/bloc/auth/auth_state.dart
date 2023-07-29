@@ -67,6 +67,6 @@ class AuthState {
 
   @override
   String toString() {
-    return 'AuthState(email: $email, password: $password, confirmPassword: $confirmPassword, status: $status, isValid: $isValid, loginValid: $loginValid, errorCode: $errorCode)';
+    return 'AuthState(status: $status, isValid: $isValid, loginValid: $loginValid, errorCode: $errorCode)';
   }
 }

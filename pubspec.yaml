@@ -12,7 +12,7 @@ dependencies:
   auto_route: ^7.7.1
   bloc: ^8.1.2
   cloud_firestore: ^4.8.4
-  collection: ^1.17.1
+  collection: ^1.18.0
   dartz: ^0.10.1
   firebase_auth: ^4.7.2
   firebase_core: ^2.15.0
@@ -50,6 +50,7 @@ dev_dependencies:
 
 dependency_overrides:
   intl: ^0.18.1
+  collection: ^1.18.0
 
 flutter:
   uses-material-design: true

@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart'
 ///
 /// Example:
 /// ```dart
-/// import 'firebase_options-dev.dart';
+/// import 'firebase_options_dev.dart';
 /// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
@@ -23,10 +23,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -65,5 +62,15 @@ class DefaultFirebaseOptions {
     messagingSenderId: '739352247687',
     projectId: 'expense-tracker-ea8bd',
     storageBucket: 'expense-tracker-ea8bd.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDODTEFJv44sP2qZVcOiSmz89S93jwGHUA',
+    appId: '1:739352247687:ios:e783b6fb046c33ae662722',
+    messagingSenderId: '739352247687',
+    projectId: 'expense-tracker-ea8bd',
+    storageBucket: 'expense-tracker-ea8bd.appspot.com',
+    iosClientId: '739352247687-fg4otkpoo27fqf7vlmv38nbccc0iq6v9.apps.googleusercontent.com',
+    iosBundleId: 'com.codesynth.expense.dev',
   );
 }

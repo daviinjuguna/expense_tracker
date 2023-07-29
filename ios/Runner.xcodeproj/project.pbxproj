@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		195C089BBB7E9BBEC5F91B3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7843CB705C592D5BDE9687F7 /* GoogleService-Info.plist */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		815A385C82E23EDCD1F0DE81 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C62FBA078EB19C6D916341E /* Pods_Runner.framework */; };
@@ -41,6 +42,7 @@
 		69501663A35730005874585F /* Pods-Runner.profile-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-development.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-development.xcconfig"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7843CB705C592D5BDE9687F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Runner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				97C146EF1CF9000F007C117D /* Products */,
 				E7F33F77EA9C696AF1EAB2D5 /* Pods */,
 				7396F09E7DCF671A0F0F54B2 /* Frameworks */,
+				7843CB705C592D5BDE9687F7 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,7 +136,6 @@
 				69501663A35730005874585F /* Pods-Runner.profile-development.xcconfig */,
 				D226FE60E19E86F316A0E272 /* Pods-Runner.profile-staging.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -204,6 +206,7 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				195C089BBB7E9BBEC5F91B3F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +220,7 @@
 			files = (
 			);
 			inputPaths = (
+				"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}",
 			);
 			name = "Thin Binary";
 			outputPaths = (
@@ -371,6 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -378,7 +383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -502,6 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -509,7 +515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -525,6 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -532,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -603,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -610,7 +618,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker.dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -679,6 +687,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -686,7 +695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker.dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -752,6 +761,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -759,7 +769,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker.dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -830,6 +840,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stg";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -837,7 +848,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker.stg";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense.stg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -906,6 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stg";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -913,7 +925,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker.stg";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense.stg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -979,6 +991,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stg";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = QVNZBL2YTQ;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] Expense Tracker";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -986,7 +999,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.verygoodcore.expense-tracker.stg";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesynth.expense.stg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

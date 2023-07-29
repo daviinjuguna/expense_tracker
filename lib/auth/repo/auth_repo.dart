@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:expense_tracker/auth/data/auth_source.dart';
 import 'package:expense_tracker/auth/models/authentication_state.dart';
+import 'package:expense_tracker/exceptions/exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
@@ -72,6 +75,9 @@ class AuthRepoImpl implements AuthRepo {
     try {
       await _source.signInWithGoogle();
       return right(unit);
+    } on GoogleSignInCancelledException catch (e) {
+      log(e.toString());
+      return left('googleSignInCancelled');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'account-exists-with-different-credential') {
         //in camelCase

@@ -167,5 +167,12 @@
           ]
         }
       }
+    },
+
+    "googleSignInCancelled": "Google sign in cancelled",
+    "@googleSignInCancelled": {
+      "description": "Error message shown when the user cancels the Google sign in",
+      "type": "text",
+      "placeholders": {}
     }
 }

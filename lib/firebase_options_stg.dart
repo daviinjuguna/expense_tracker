@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart'
 ///
 /// Example:
 /// ```dart
-/// import 'firebase_options-stg.dart';
+/// import 'firebase_options_stg.dart';
 /// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
@@ -70,8 +70,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '739352247687',
     projectId: 'expense-tracker-ea8bd',
     storageBucket: 'expense-tracker-ea8bd.appspot.com',
-    iosClientId:
-        '739352247687-kn7pcvh35oasaq0ubkvaui11qtjt6rmj.apps.googleusercontent.com',
+    iosClientId: '739352247687-kn7pcvh35oasaq0ubkvaui11qtjt6rmj.apps.googleusercontent.com',
     iosBundleId: 'com.codesynth.expense.stg',
   );
 }

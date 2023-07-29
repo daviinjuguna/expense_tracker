@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:expense_tracker/auth/auth.dart';
+import 'package:expense_tracker/exceptions/exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -234,6 +235,19 @@ void main() {
         expect(result.isRight(), isFalse);
         //in camelCase
         expect(result.fold((l) => l, (r) => r), 'signInError');
+      });
+
+      test('google sign in cancelled display google sign in cancelled',
+          () async {
+        when(() => authSource.signInWithGoogle())
+            .thenThrow(GoogleSignInCancelledException());
+
+        final result = await authRepo.signInWithGoogle();
+        expect(result, isA<Left<String, Unit>>());
+        expect(result.isLeft(), isTrue);
+        expect(result.isRight(), isFalse);
+        //in camelCase
+        expect(result.fold((l) => l, (r) => r), 'googleSignInCancelled');
       });
 
       test('default display default', () async {
