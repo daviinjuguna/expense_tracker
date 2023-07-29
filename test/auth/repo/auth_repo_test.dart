@@ -134,7 +134,7 @@ void main() {
 
       test('weakPassword result to left as weakPassword', () async {
         when(() => authSource.signUp(any(), any())).thenThrow(
-          FirebaseAuthException(code: 'weakPassword'),
+          FirebaseAuthException(code: 'weak-password'),
         );
 
         final result = await authRepo.signUp(email, password);

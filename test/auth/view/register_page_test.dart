@@ -4,6 +4,7 @@ import 'package:expense_tracker/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_inputs/form_inputs.dart';
+import 'package:formz/formz.dart';
 import 'package:mockingjay/mockingjay.dart';
 
 import '../../helpers/helpers.dart';
@@ -175,6 +176,68 @@ void main() {
         await tester.pumpAndSettle();
         expect(router.current.name, LoginRoute.name);
         expect(find.byType(LoginPage), findsOneWidget);
+      },
+    );
+  });
+
+  group('Snackbar', () {
+    const loadingSnack = Key('loading_snackbar');
+    const errorSnack = Key('error_snackbar');
+
+    testWidgets(
+      "show loading snackbar when loading",
+      (WidgetTester tester) async {
+        final _states = [
+          AuthState(status: FormzSubmissionStatus.initial),
+          AuthState(status: FormzSubmissionStatus.inProgress),
+        ];
+        whenListen(authCubit, Stream.fromIterable(_states));
+
+        //act
+        await tester.pumpApp(const RegisterView(), authCubit: authCubit);
+        expect(find.byKey(loadingSnack), findsNothing);
+        await tester.pump(const Duration(milliseconds: 750));
+
+        //assert
+        expect(find.byKey(loadingSnack), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      "show error snack when loading",
+      (WidgetTester tester) async {
+        final _states = [
+          AuthState(status: FormzSubmissionStatus.initial),
+          AuthState(status: FormzSubmissionStatus.failure),
+        ];
+        whenListen(authCubit, Stream.fromIterable(_states));
+
+        //act
+        await tester.pumpApp(const RegisterView(), authCubit: authCubit);
+        expect(find.byKey(errorSnack), findsNothing);
+        await tester.pump(const Duration(milliseconds: 750));
+
+        //assert
+        expect(find.byKey(errorSnack), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      "no snack when success",
+      (WidgetTester tester) async {
+        final _states = [
+          AuthState(status: FormzSubmissionStatus.initial),
+          AuthState(status: FormzSubmissionStatus.inProgress),
+          AuthState(status: FormzSubmissionStatus.success),
+        ];
+        whenListen(authCubit, Stream.fromIterable(_states));
+
+        //act
+        await tester.pumpApp(const RegisterView(), authCubit: authCubit);
+        expect(find.byKey(loadingSnack), findsNothing);
+        await tester.pump(const Duration(milliseconds: 750));
+
+        expect(find.byKey(loadingSnack), findsNothing);
       },
     );
   });

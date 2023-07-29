@@ -70,7 +70,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '739352247687',
     projectId: 'expense-tracker-ea8bd',
     storageBucket: 'expense-tracker-ea8bd.appspot.com',
-    iosClientId: '739352247687-fg4otkpoo27fqf7vlmv38nbccc0iq6v9.apps.googleusercontent.com',
+    iosClientId:
+        '739352247687-fg4otkpoo27fqf7vlmv38nbccc0iq6v9.apps.googleusercontent.com',
     iosBundleId: 'com.codesynth.expense.dev',
   );
 }

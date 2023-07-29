@@ -174,5 +174,23 @@
       "description": "Error message shown when the user cancels the Google sign in",
       "type": "text",
       "placeholders": {}
+    },
+    "loading": "Loading...",
+    "@loading": {
+      "description": "Text shown when the app is loading",
+      "type": "text",
+      "placeholders": {}
+    },
+    "unknownError": "Unknown error",
+    "@unknownError": {
+      "description": "Error message shown when an unknown error occurs",
+      "type": "text",
+      "placeholders": {}
+    },
+    "signUpError": "Sign up error",
+    "@signUpError": {
+      "description": "Error message shown when an unknown error occurs",
+      "type": "text",
+      "placeholders": {}
     }
 }

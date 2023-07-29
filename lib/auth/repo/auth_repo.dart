@@ -58,7 +58,7 @@ class AuthRepoImpl implements AuthRepo {
       if (e.code == 'email-already-in-use') {
         return left('emailAlreadyInUse');
       }
-      if (e.code == 'weakPassword') {
+      if (e.code == 'weak-password') {
         return left('weakPassword');
       }
       if (e.code == 'invalid-email') {

@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:expense_tracker/auth/auth.dart';
+import 'package:expense_tracker/home/home.dart';
 import 'package:expense_tracker/router/router.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -49,6 +50,17 @@ void main() {
         await tester.pump();
         expect(router.current.name, RegisterRoute.name);
         expect(find.byType(RegisterPage), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      "Navigation to HomeRoute should push HomePage page",
+      (WidgetTester tester) async {
+        await tester.pumpRouterApp(router);
+        router.navigate(HomeRoute());
+        await tester.pump();
+        expect(router.current.name, HomeRoute.name);
+        expect(find.byType(HomePage), findsOneWidget);
       },
     );
   });

@@ -28,7 +28,6 @@ class _AppViewState extends State<AppView> {
   void initState() {
     super.initState();
     _appRouter = widget.appRouter ?? AppRouter(navigatorKey: _navigatorKey);
-    context.read<SplashBloc>().add(StartSplashEvent());
   }
 
   @override
@@ -39,25 +38,20 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: [
-        BlocListener<SplashBloc, SplashState>(
-          listener: (context, state) {
-            switch (state) {
-              case SplashState.authenticated:
-                //nav to home
-
-                break;
-              case SplashState.unauthenticated:
-                //nav to login
-                _appRouter.pushAndPopUntil(LoginRoute(),
-                    predicate: (_) => false);
-                break;
-              default:
-            }
-          },
-        )
-      ],
+    return BlocListener<SplashBloc, SplashState>(
+      listener: (context, state) {
+        switch (state) {
+          case SplashState.authenticated:
+            //nav to home
+            _appRouter.pushAndPopUntil(HomeRoute(), predicate: (_) => false);
+            break;
+          case SplashState.unauthenticated:
+            //nav to login
+            _appRouter.pushAndPopUntil(LoginRoute(), predicate: (_) => false);
+            break;
+          default:
+        }
+      },
       child: Builder(
         builder: (context) {
           return MaterialApp.router(
