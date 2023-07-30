@@ -192,5 +192,17 @@
       "description": "Error message shown when an unknown error occurs",
       "type": "text",
       "placeholders": {}
+    },
+    "expense": "Expense",
+    "@expense": {
+      "description": "Text shown in the expense button",
+      "type": "text",
+      "placeholders": {}
+    },
+    "income": "Income",
+    "@income": {
+      "description": "Text shown in the income button",
+      "type": "text",
+      "placeholders": {}
     }
 }

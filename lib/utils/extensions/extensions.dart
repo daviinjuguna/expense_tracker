@@ -11,12 +11,22 @@ extension ShowSnackBar on BuildContext {
       ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
+          backgroundColor: Theme.of(this).colorScheme.primaryContainer,
           key: key,
           content: Row(
             children: [
-              const CircularProgressIndicator(),
-              const SizedBox(width: 10),
-              Text(AppLocalizations.of(this).loading),
+              CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(
+                  Theme.of(this).colorScheme.onPrimaryContainer,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                AppLocalizations.of(this).loading,
+                style: TextStyle(
+                  color: Theme.of(this).colorScheme.onPrimaryContainer,
+                ),
+              ),
             ],
           ),
           duration: const Duration(seconds: 60),
