@@ -15,4 +15,6 @@ class ExpenseModel with _$ExpenseModel {
 
   factory ExpenseModel.fromJson(Map<String, dynamic> json) =>
       _$ExpenseModelFromJson(json);
+
+  //from document snapshot
 }
