@@ -28,44 +28,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverAppBar.large(
-            automaticallyImplyLeading: false,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(context.l10n.appTitle),
-              background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.blue,
-                      Colors.purple,
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            bottom: TabBar(
-              controller: _tabController,
-              tabs: [
-                Tab(
-                  text: context.l10n.expense,
-                ),
-                Tab(
-                  text: context.l10n.income,
-                ),
-              ],
-            ),
-          )
-        ],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            Container(),
-            Container(),
-          ],
-        ),
-      ),
+      appBar: AppBar(),
+      body: Column(),
     );
   }
 }

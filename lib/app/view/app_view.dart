@@ -1,7 +1,5 @@
 // coverage:ignore-file
 
-import 'package:app_ui/app_ui.dart';
-import 'package:expense_tracker/auth/auth.dart';
 import 'package:expense_tracker/l10n/l10n.dart';
 import 'package:expense_tracker/router/router.dart';
 import 'package:expense_tracker/theme_selector/theme_selector.dart';
@@ -38,34 +36,25 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SplashBloc, SplashState>(
-      listener: (context, state) {
-        switch (state) {
-          case SplashState.authenticated:
-            //nav to home
-            _appRouter.pushAndPopUntil(HomeRoute(), predicate: (_) => false);
-            break;
-          case SplashState.unauthenticated:
-            //nav to login
-            _appRouter.pushAndPopUntil(LoginRoute(), predicate: (_) => false);
-            break;
-          default:
-        }
+    return BlocBuilder<ThemeModeBloc, ThemeMode>(
+      builder: (context, state) {
+        return MaterialApp.router(
+          theme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffe9b96e)),
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff8f5902)),
+            useMaterial3: true,
+          ),
+          themeMode: state,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: _appRouter.delegate(),
+          // routerConfig: _appRouter.config(),
+        );
       },
-      child: Builder(
-        builder: (context) {
-          return MaterialApp.router(
-            theme: const AppTheme().themeData,
-            darkTheme: const AppDarkTheme().themeData,
-            themeMode: context.watch<ThemeModeBloc>().state,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-            routeInformationParser: _appRouter.defaultRouteParser(),
-            routerDelegate: _appRouter.delegate(),
-            // routerConfig: _appRouter.config(),
-          );
-        },
-      ),
     );
   }
 }
