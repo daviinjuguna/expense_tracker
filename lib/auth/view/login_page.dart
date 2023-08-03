@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:expense_tracker/auth/auth.dart';
 import 'package:expense_tracker/di/di.dart';
 import 'package:expense_tracker/gen/gen.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 
-@RoutePage()
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key, this.authCubit});
 
@@ -142,9 +140,11 @@ class _LoginViewState extends State<LoginView> {
                     onPressed: state.status.isInProgress
                         ? null
                         : () {
-                            context.navigateTo(
-                              RegisterRoute(authCubit: widget.authCubitTest),
-                            );
+                            // context.navigateTo(
+                            //   RegisterRoute(authCubit: widget.authCubitTest),
+                            // );
+                            // context.go(RegisterRoute().location);
+                            RegisterRoute().go(context);
                           },
                     child: Text(l10n.signUp),
                     style: TextButton.styleFrom(

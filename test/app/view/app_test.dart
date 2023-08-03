@@ -38,33 +38,4 @@ void main() {
       expect(find.byType(AppView), findsOneWidget);
     });
   });
-
-  //ELP: This test is failing because of the splash screen
-  // group('SplashBloc', () {
-  //   testWidgets(
-  //     "Navigate to LoginPage when SplashState.unauthenticated",
-  //     (WidgetTester tester) async {
-  //       final _state = [
-  //         SplashState.initial,
-  //         SplashState.loading,
-  //         SplashState.unauthenticated
-  //       ];
-  //       whenListen(
-  //         splashBloc,
-  //         Stream.fromIterable(_state),
-  //       );
-
-  //       await tester.pumpApp(
-  //         AppView(appRouter: router),
-  //         splashBloc: splashBloc,
-  //       );
-  //       await tester.pump();
-  //       expect(router.current.name, SplashRoute.page.name);
-  //       await tester.pump(Duration(milliseconds: 750));
-  //       expect(router.current.name, SplashRoute.page.name);
-  //       await tester.pump(Duration(milliseconds: 750));
-  //       expect(router.current.name, LoginRoute.page.name);
-  //     },
-  //   );
-  // });
 }

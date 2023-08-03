@@ -22,10 +22,8 @@ void main() {
 
   const testEmail = 'test@gmail.com';
   const testPass = 't0pS3cret1234';
-  late AppRouter router;
 
   setUp(() {
-    router = AppRouter();
     authCubit = MockAuthBloc();
     when(() => authCubit.state).thenReturn(AuthState());
   });
@@ -131,13 +129,16 @@ void main() {
       testWidgets(
         "navigates to RegisterPage when create account button is pressed",
         (WidgetTester tester) async {
-          await tester.pumpRouterApp(router);
-          router.navigate(LoginRoute(authCubit: authCubit));
-          await tester.pumpAndSettle();
+          final goRouter = MockGoRouter();
+          await tester.pumpMockGoRouterApp(
+            LoginPage(authCubit: authCubit),
+            mockGoRouter: goRouter,
+          );
+          await tester.pump();
+
           await tester.tap(find.byKey(createAccBtnKey));
           await tester.pumpAndSettle();
-          expect(router.current.name, RegisterRoute.name);
-          expect(find.byType(RegisterPage), findsOneWidget);
+          verify(() => goRouter.go(RegisterRoute().location)).called(1);
         },
       );
     });

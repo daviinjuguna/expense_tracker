@@ -10,6 +10,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late final TabController _tabController;
+  AppLocalizations get l10n => AppLocalizations.of(context);
   @override
   void initState() {
     super.initState();

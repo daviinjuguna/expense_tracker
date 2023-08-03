@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:expense_tracker/auth/bloc/auth/auth_cubit.dart';
 import 'package:expense_tracker/di/di.dart';
 import 'package:expense_tracker/gen/gen.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 
-@RoutePage()
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key, this.authCubit});
 
@@ -154,9 +152,7 @@ class _RegisterViewState extends State<RegisterView> {
                   TextButton(
                     key: const Key('sign_in_btn'),
                     onPressed: () {
-                      context.navigateTo(
-                        LoginRoute(authCubit: widget.authCubitTest),
-                      );
+                      LoginRoute().go(context);
                     },
                     child: Text(l10n.signIn),
                     style: TextButton.styleFrom(
