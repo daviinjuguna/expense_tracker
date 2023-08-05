@@ -1,27 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class FirebaseResponse {
-  final List<DocumentSnapshot> docs;
-  final String error;
+part 'response.freezed.dart';
 
-  //success
-  FirebaseResponse.success(this.docs) : error = '';
-
-  //error
-  FirebaseResponse.error(this.error) : docs = [];
-
-  bool get isError => error.isNotEmpty && docs.isEmpty;
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is FirebaseResponse &&
-        listEquals(other.docs, docs) &&
-        other.error == error;
-  }
-
-  @override
-  int get hashCode => docs.hashCode ^ error.hashCode;
+@freezed
+class FirebaseResponse with _$FirebaseResponse {
+  factory FirebaseResponse.success(List<DocumentSnapshot> doc) = _Success;
+  factory FirebaseResponse.error(String message) = _Error;
 }

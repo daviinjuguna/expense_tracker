@@ -11,4 +11,20 @@ void main() {
       expect(FirebaseResponse.error('error'), isNotNull);
     });
   });
+
+  group('Equality and hashcode', () {
+    test('equality', () {
+      expect(
+        FirebaseResponse.error("Error"),
+        FirebaseResponse.error("Error"),
+      );
+    });
+
+    test('hashcode', () {
+      expect(
+        FirebaseResponse.error("Error").hashCode,
+        FirebaseResponse.error("Error").hashCode,
+      );
+    });
+  });
 }

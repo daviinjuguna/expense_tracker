@@ -23,14 +23,14 @@ void main() {
         uid: 'uid',
         title: 'title',
         amount: 200.2,
-        date: DateTime.now(),
+        date: DateTime(2021, 07, 30, 12, 34, 56),
       );
 
       final incomeTwo = IncomeModel(
         uid: 'uid',
         title: 'title',
         amount: 200.2,
-        date: DateTime.now(),
+        date: DateTime(2021, 07, 30, 12, 34, 56),
       );
 
       expect(incomeOne, incomeTwo);
