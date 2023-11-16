@@ -58,7 +58,7 @@ dev_dependencies:
   go_router_builder: ^2.2.4
   google_sign_in_mocks: ^0.3.0
   json_serializable: ^6.7.1
-  mockingjay: ^0.3.0
+  mockingjay: ^0.4.0
   mockito: ^5.4.2
   very_good_analysis: ^5.0.0+1
 
